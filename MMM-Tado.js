@@ -131,6 +131,8 @@ Module.register("MMM-Tado", {
                         var temperatureTextWrapper = document.createTextNode(zone.state.sensorDataPoints.insideTemperature.fahrenheit + "°");
                     }
                     temperatureWrapper.appendChild(temperatureTextWrapper);
+
+                    // Heating indicator
                     if (zone.state.activityDataPoints.heatingPower.percentage > 0) {
                         //The zone is heating
                         var heatingWrapper = document.createElement("i");
@@ -142,9 +144,9 @@ Module.register("MMM-Tado", {
                     //target temperature
                     var temperatureTargetWrapper = document.createElement("span");
                     temperatureTargetWrapper.className = "xsmall";
-                    var temperatureTargetIconWrapper = document.createElement("i");
-                    temperatureTargetIconWrapper.className = "fa fa-thermometer-full";
-                    temperatureTargetWrapper.appendChild(temperatureTargetIconWrapper);
+                    //var temperatureTargetIconWrapper = document.createElement("i");
+                    //temperatureTargetIconWrapper.className = "fa fa-thermometer-full";
+                    //temperatureTargetWrapper.appendChild(temperatureTargetIconWrapper);
                     if (zone.state.setting.temperature == null) {
                         var temperatureTargetTextWrapper = document.createTextNode(zone.state.setting.power);
                     } else {
@@ -157,16 +159,17 @@ Module.register("MMM-Tado", {
                     temperatureTargetWrapper.appendChild(temperatureTargetTextWrapper);
                     secondTableDateWrapper.appendChild(temperatureTargetWrapper);
 
-                    var breakLine = document.createElement("br");
-                    secondTableDateWrapper.appendChild(breakLine);
-
-                    var humidityWrapper = document.createElement("span");
-                    var humidityIconWrapper = document.createElement("i");
-                    humidityIconWrapper.className = "fa fa-tint";
-                    humidityWrapper.appendChild(humidityIconWrapper);
-                    var humidityTextWrapper = document.createTextNode(zone.state.sensorDataPoints.humidity.percentage + "%");
-                    humidityWrapper.appendChild(humidityTextWrapper);
-                    secondTableDateWrapper.appendChild(humidityWrapper);
+                    // humidity
+                    // var breakLine = document.createElement("br");
+                    // secondTableDateWrapper.appendChild(breakLine);
+                    //
+                    // var humidityWrapper = document.createElement("span");
+                    // var humidityIconWrapper = document.createElement("i");
+                    // humidityIconWrapper.className = "fa fa-tint";
+                    // humidityWrapper.appendChild(humidityIconWrapper);
+                    // var humidityTextWrapper = document.createTextNode(zone.state.sensorDataPoints.humidity.percentage + "%");
+                    // humidityWrapper.appendChild(humidityTextWrapper);
+                    // secondTableDateWrapper.appendChild(humidityWrapper);
 
                     rowWrapper.appendChild(secondTableDateWrapper);
                 }
